@@ -9,7 +9,7 @@ const AuthenrizeLayout = ({
     justifyContent="center"
     alignItems="center"
     flexDirection="column"
-     className="bg-neutral01 mx-10 my-5 h-screen rounded-2xl">
+     className="bg-neutral01 mx-10 my-5 py-40 h-auto rounded-2xl">
       {children}
     </Box>
   );
