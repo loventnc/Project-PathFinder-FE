@@ -1,8 +1,8 @@
 import React from "react";
-import { Box, Button, Typography } from "@mui/material";
+import { Box,Typography } from "@mui/material";
 import { QuizzInterface } from "@/interface/QuizzInterface";
 import Image from "next/image";
-import { useContext, useState } from "react";
+import { useContext} from "react";
 import { QuizzContext } from "../page";
 import { Radio, RadioGroup } from "@mui/joy";
 import Pagination from "./Pagination";
