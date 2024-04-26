@@ -13,7 +13,7 @@ const Navbar = () => {
         <Typography variant="h5" className="font-bold">PathFinder</Typography>
       </Box>
       <Box className="flex gap-10 items-center text-lg">
-        <Link href="/">หน้าหลก</Link>
+        <Link href="/">หน้าหลัก</Link>
         <Link href="/predict">แบบทดสอบ</Link>
         <Link href={""}>ผลลัพธ์</Link>
         <Link href={""}>ชุมชน</Link>

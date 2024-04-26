@@ -1,8 +1,8 @@
 import React from "react";
-import { Box, Button, Typography } from "@mui/material";
+import { Box,Typography } from "@mui/material";
 import { QuizzInterface } from "@/interface/QuizzInterface";
 import Image from "next/image";
-import { useContext, useState } from "react";
+import { useContext} from "react";
 import { QuizzContext } from "../page";
 import { Radio, RadioGroup } from "@mui/joy";
 import Pagination from "./Pagination";
@@ -56,7 +56,7 @@ const PropQuizz = () => {
                       key={choise._id}
                       className="bg-secondary02 w-full h-[48px] items-center px-5"
                       value={choise._id}
-                      label={`${index}. ${choise.answer}`}
+                      label={`${index+1}. ${choise.answer}`}
                     ></Radio>
                   );
                 })}

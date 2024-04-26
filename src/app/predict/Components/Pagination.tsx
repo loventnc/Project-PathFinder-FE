@@ -1,9 +1,13 @@
+"use client";
 import { Box, Button } from "@mui/material";
 import React from "react";
 import { QuizzContext } from "../page";
 import { useContext } from "react";
+import { axiosInstance } from "@/lib/axiosInstance";
+import { useRouter } from "next/navigation";
 
 const Pagination = () => {
+  const router = useRouter();
   const { totalQuizz, quizzperPage, paginate, currentPage, choiseID } = useContext(QuizzContext);
 
   const pageNumbers: number[] = [];
@@ -15,7 +19,10 @@ const Pagination = () => {
   const handleNextQuizz = () => {
     pageNumbers.map((number) => {
       if (currentPage === totalQuizz) {
-        console.log(choiseID);
+        axiosInstance.post("/api/user/quizz/predict", { choiseARR : choiseID }).then((res) => {
+          router.push(`/result/${res.data.result}`);
+          // console.log(res.data.result);
+        });
         return false;
       }
       if (currentPage === number) {
@@ -34,6 +41,8 @@ const Pagination = () => {
       }
     });
   };
+
+  
 
   return (
     <Box className="flex justify-between px-32">
