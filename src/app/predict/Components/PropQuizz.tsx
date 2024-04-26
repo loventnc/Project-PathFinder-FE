@@ -56,7 +56,7 @@ const PropQuizz = () => {
                       key={choise._id}
                       className="bg-secondary02 w-full h-[48px] items-center px-5"
                       value={choise._id}
-                      label={`${index}. ${choise.answer}`}
+                      label={`${index+1}. ${choise.answer}`}
                     ></Radio>
                   );
                 })}
