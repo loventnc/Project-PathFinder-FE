@@ -8,7 +8,6 @@ import { Grid, Typography, Box } from "@mui/material";
 import Image from "next/image";
 import CardJob from "../components/CardJob";
 import JobDetail from "../components/JobDetail";
-
 const ResultPage = () => {
   const params = useParams<{ result_id: string }>();
   const [result, setResult] = useState<ResultInterface>({} as ResultInterface);
@@ -30,15 +29,15 @@ const ResultPage = () => {
 
   const job = result.jobID;
 
-
   return (
     <div>
-     <Grid container 
-     paddingX={{ xs: 2, md: 14 }}
-      paddingY={{ xs: 2, md: 2 }}
-      >
-        <Grid item xs={12} md={7} display="flex" justifyContent="center" >
-          <CardJob jobTitle={job?.jobTitle} jobImage={job?.Image} jobDescription={job?.description} />
+      <Grid container paddingX={{ xs: 2, md: 14 }} paddingY={{ xs: 2, md: 2 }}>
+        <Grid item xs={12} md={7} display="flex" justifyContent="center">
+          <CardJob
+            jobTitle={job?.jobTitle}
+            jobImage={job?.Image}
+            jobDescription={job?.description}
+          />
         </Grid>
         <Grid item xs={12} md={5}>
           <JobDetail skills={job?.skills} OneDayDo={job?.OneDayDo} />
