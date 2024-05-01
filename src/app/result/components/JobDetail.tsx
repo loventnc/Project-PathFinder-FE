@@ -35,7 +35,7 @@ const JobDetail = ({ OneDayDo, skills }: JobDetailProps) => {
             variant="h5"
             className="font-bold text-primary border-b-2 border-primary w-fit"
           >
-            ทักษะที่ตควรมี
+            ทักษะที่ควรมี
           </Typography>
           <Box>
             <List marker="disc">
