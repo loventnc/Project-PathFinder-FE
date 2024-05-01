@@ -10,7 +10,7 @@ import { axiosInstance } from "@/lib/axiosInstance";
 import { useRouter } from "next/navigation";
 
 const Loginpage = () => {
-    const router = useRouter();
+  const router = useRouter();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -76,9 +76,7 @@ const Loginpage = () => {
             onChange={handleChange}
             fullWidth
           />
-          <Box
-          width={"100%"}
-          >
+          <Box width={"100%"}>
             <TextField
               id="outlined-basic"
               label="รหัสผ่าน"
@@ -89,22 +87,23 @@ const Loginpage = () => {
               type="password"
               fullWidth
             />
-            <Link href={""} className="flex text-sm justify-end text-neutral04 mt-3">
-                <Typography>
-                    ลืมรหัสผ่าน?
-                </Typography>
+            <Link
+              href={""}
+              className="flex text-sm justify-end text-neutral04 mt-3"
+            >
+              <Typography>ลืมรหัสผ่าน?</Typography>
             </Link>
           </Box>
           <Button type="submit" variant="contained" fullWidth size="large">
             <Typography variant="h6">เข้าสู่ระบบ</Typography>
           </Button>
         </form>
-        <Link href="" className="flex justify-center gap-x-2">
+        <Link href="/authenrize/signup" className="flex justify-center gap-x-2">
           <Typography variant="h6" className="text-primary">
             ยังไม่มีบัญชี?
           </Typography>
           <Typography variant="h6" className="text-primary font-bold">
-            สร้างใช้งาน
+            สมัครใช้งาน
           </Typography>
         </Link>
       </Grid>
