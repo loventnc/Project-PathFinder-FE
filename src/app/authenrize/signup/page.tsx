@@ -8,8 +8,11 @@ import { useState } from "react";
 import Link from "next/link";
 import { axiosInstance } from "@/lib/axiosInstance";
 import { useRouter } from "next/navigation";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
-const Loginpage = () => {
+const Signuppage = () => {
   const router = useRouter();
   const [user, setUser] = useState({
     firstName: "",
@@ -124,16 +127,16 @@ const Loginpage = () => {
               />
             </Grid>
           </Grid>
-          <TextField
-            id="outlined-basic"
-            label="วันเกิด"
-            placeholder="วันเกิด"
-            name="birthdate"
-            variant="outlined"
-            type="text"
-            onChange={handleChange}
-            fullWidth
-          />
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <TextField
+              label="วันเกิด"
+              value={user.birthdate}
+              onChange={(e) => setUser({ ...user, birthdate: e.target.value })}
+              variant="outlined"
+              type="date"
+              fullWidth
+            />
+          </LocalizationProvider>
           <TextField
             id="outlined-basic"
             label="ชื่อผู้ใช้"
@@ -183,4 +186,4 @@ const Loginpage = () => {
   );
 };
 
-export default Loginpage;
+export default Signuppage;
