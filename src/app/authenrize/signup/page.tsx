@@ -127,15 +127,8 @@ const Signuppage = () => {
               />
             </Grid>
           </Grid>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <TextField
-              label="วันเกิด"
-              value={user.birthdate}
-              onChange={(e) => setUser({ ...user, birthdate: e.target.value })}
-              variant="outlined"
-              type="date"
-              fullWidth
-            />
+          <LocalizationProvider dateAdapter={AdapterDayjs} >
+            <DatePicker label="วันเกิด" className="w-full"/>
           </LocalizationProvider>
           <TextField
             id="outlined-basic"
