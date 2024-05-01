@@ -3,14 +3,16 @@ import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import logoPath from "@/asset/img/Rectangle 60.svg";
 import Link from "next/link";
-import {Button} from "@mui/material";
+import { Button } from "@mui/material";
 
 const Navbar = () => {
   return (
     <Box className="bg-neutral01 flex items-center justify-between px-10 mx-10 my-5 rounded-xl h-14">
       <Box className="flex h-full items-center">
         <Image src={logoPath} alt="logo" />
-        <Typography variant="h5" className="font-bold">PathFinder</Typography>
+        <Typography variant="h5" className="font-bold">
+          PathFinder
+        </Typography>
       </Box>
       <Box className="flex gap-10 items-center text-lg">
         <Link href="/">หน้าหลัก</Link>
@@ -18,7 +20,10 @@ const Navbar = () => {
         <Link href={""}>ผลลัพธ์</Link>
         <Link href={"/community"}>ชุมชน</Link>
         <Link href="/authenrize/login">
-            <Button variant="contained">เข้าสู่ระบบ</Button>
+          <Button variant="contained">เข้าสู่ระบบ</Button>
+        </Link>
+        <Link href="/authenrize/signup">
+          <Button variant="contained">สมัครใช้งาน</Button>
         </Link>
       </Box>
     </Box>
