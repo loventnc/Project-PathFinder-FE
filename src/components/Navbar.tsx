@@ -16,7 +16,7 @@ const Navbar = () => {
         <Link href="/">หน้าหลัก</Link>
         <Link href="/predict">แบบทดสอบ</Link>
         <Link href={""}>ผลลัพธ์</Link>
-        <Link href={""}>ชุมชน</Link>
+        <Link href={"/community"}>ชุมชน</Link>
         <Link href="/authenrize/login">
             <Button variant="contained">เข้าสู่ระบบ</Button>
         </Link>
