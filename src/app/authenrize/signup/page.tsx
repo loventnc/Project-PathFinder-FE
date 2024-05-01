@@ -16,11 +16,11 @@ import badnner from "@/asset/img/image 1.svg";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import { axiosInstance } from "@/lib/axiosInstance";
+import { axiosInstance  } from "@/lib/axiosInstance";
 import { useRouter } from "next/navigation";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from "dayjs";
 
 const Signuppage = () => {
@@ -154,7 +154,7 @@ const Signuppage = () => {
             <DatePicker
               label="วันเกิด"
               className="w-full"
-              onChange={(newValue) => {
+              onChange={(newValue :any) => {
                 setUser({
                   ...user,
                   birthDate: dayjs(newValue as dayjs.Dayjs).format(
