@@ -8,7 +8,6 @@ import { Button } from "@mui/material";
 import { axiosInstance } from "@/lib/axiosInstance";
 import { useState, useEffect } from "react";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import { ClassNames } from "@emotion/react";
 
 const Navbar = () => {
   const [user, setUser] = useState();
