@@ -22,15 +22,11 @@ const Loginpage = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     axiosInstance
       .post("/api/user/login", user)
-      .then(async (res) => {
-        if (res.data.message === "Login Success") {
-          window.location.reload();
-          await router.push("/", { scroll: false });
-        }
+      .then(async () => {
+        await router.push("/", { scroll: false });
       })
       .catch((err) => {
         console.log(err);
