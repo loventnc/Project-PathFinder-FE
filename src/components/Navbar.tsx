@@ -1,31 +1,51 @@
 "use client";
-import React from "react";
-import { Box, Typography } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { Box, Typography, Button } from "@mui/material";
 import Image from "next/image";
 import logoPath from "@/asset/img/Rectangle 60.svg";
 import Link from "next/link";
-import { Button } from "@mui/material";
-import { axiosInstance } from "@/lib/axiosInstance";
-import { useState, useEffect } from "react";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import { axiosInstance } from "@/lib/axiosInstance";
+import { userInterface } from "@/interface/CommunityInterface";
 
 const Navbar = () => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState<userInterface | undefined>(undefined);
+  const [isLogin, setIsLogin] = useState<boolean>(false);
 
   const fetchUserdata = async () => {
     try {
       const response = await axiosInstance.get("/api/user/getuserbyid");
-      setUser(response.data);
-    } catch (error) {
-      console.log(error);
+      const { data, status } = response;
+      if (status === 200 && data?.message !== "Unauthorized") {
+        setUser(data);
+      } else {
+        setIsLogin(false);
+        setUser(undefined);
+      }
+    } catch (error: any) {
+      console.log(error.response?.status);
     }
-  }; //ดึงข้อมูลผู้ใช้
+  };
+
 
   useEffect(() => {
     fetchUserdata();
+  }, []);
+
+  useEffect(() => {
+    setIsLogin(user !== undefined)
   }, [user]);
 
-  console.log(user);
+  const handleLogout = async () => {
+    try {
+      await axiosInstance.post("/api/user/logout");
+      setIsLogin(false);
+      setUser(undefined);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Box className="bg-neutral01 flex items-center justify-between px-10 mx-10 my-5 rounded-xl h-14">
       <Box className="flex h-full items-center">
@@ -39,24 +59,25 @@ const Navbar = () => {
         <Link href="/predict">แบบทดสอบ</Link>
         <Link href={""}>ผลลัพธ์</Link>
         <Link href={"/community"}>ชุมชน</Link>
-        {!user ? (
+
+        {isLogin != false ? (
+          <>
+            <Box className="flex items-center ">
+              <PersonOutlineOutlinedIcon className="mr-2" />
+              <Typography variant="body1">{user?.username}</Typography>
+            </Box>
+            <Link href="/profile"></Link>
+            <Button variant="text" onClick={handleLogout}>
+              ออกจากระบบ
+            </Button>
+          </>
+        ) : (
           <>
             <Link href="/authenrize/login">
               <Button variant="contained">เข้าสู่ระบบ</Button>
             </Link>
             <Link href="/authenrize/signup">
               <Button variant="contained">สมัครใช้งาน</Button>
-            </Link>
-          </>
-        ) : (
-          <>
-            <Box className="flex items-center ">
-              <PersonOutlineOutlinedIcon className="mr-2" />
-              <Typography variant="body1">{user.username}</Typography>
-            </Box>
-            <Link href="/profile"></Link>
-            <Link href="/authenrize/logout">
-              <Button variant="text">ออกจากระบบ</Button>
             </Link>
           </>
         )}

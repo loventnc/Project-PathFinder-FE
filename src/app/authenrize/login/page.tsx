@@ -1,14 +1,13 @@
 "use client";
 
 import { Grid, Box, Typography, TextField, Button } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import badnner from "@/asset/img/image 1.svg";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { axiosInstance } from "@/lib/axiosInstance";
 import { useRouter } from "next/navigation";
-
 const Loginpage = () => {
   const router = useRouter();
   const [user, setUser] = useState({
@@ -27,8 +26,11 @@ const Loginpage = () => {
     e.preventDefault();
     axiosInstance
       .post("/api/user/login", user)
-      .then((res) => {
-        router.push("/");
+      .then(async (res) => {
+        if (res.data.message === "Login Success") {
+          window.location.reload();
+          await router.push("/", { scroll: false });
+        }
       })
       .catch((err) => {
         console.log(err);

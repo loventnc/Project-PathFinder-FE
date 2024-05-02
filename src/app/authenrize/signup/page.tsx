@@ -58,7 +58,6 @@ const Signuppage = () => {
       });
   };
 
-  console.log(user);
 
   return (
     <Grid container>
