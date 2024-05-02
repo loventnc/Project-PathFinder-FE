@@ -16,11 +16,11 @@ import badnner from "@/asset/img/image 1.svg";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import { axiosInstance  } from "@/lib/axiosInstance";
+import { axiosInstance } from "@/lib/axiosInstance";
 import { useRouter } from "next/navigation";
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
 
 const Signuppage = () => {
@@ -46,19 +46,16 @@ const Signuppage = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     axiosInstance
       .post("/api/user/register", user)
-      .then((res) => {
-        router.push("/");
+      .then(async () => {
+        await router.push("/", { scroll: false });
       })
       .catch((err) => {
         console.log(err);
       });
   };
-
-  console.log(user);
 
   return (
     <Grid container>
@@ -120,21 +117,21 @@ const Signuppage = () => {
           <Grid container spacing={2}>
             <Grid item xs={6}>
               <FormControl fullWidth>
-              <InputLabel>ระดับการศึกษา</InputLabel>
-              <Select
-                fullWidth
-                label="ระดับการศึกษา"
-                placeholder="ระดับการศึกษา"
-                value={user.education_level}
-                name="education_level"
-                onChange={handleChange}
-              >
-                {educationArr.map((education: string, index: number) => (
-                  <MenuItem key={index} value={education}>
-                    {education}
-                  </MenuItem>
-                ))}
-              </Select>
+                <InputLabel>ระดับการศึกษา</InputLabel>
+                <Select
+                  fullWidth
+                  label="ระดับการศึกษา"
+                  placeholder="ระดับการศึกษา"
+                  value={user.education_level}
+                  name="education_level"
+                  onChange={handleChange}
+                >
+                  {educationArr.map((education: string, index: number) => (
+                    <MenuItem key={index} value={education}>
+                      {education}
+                    </MenuItem>
+                  ))}
+                </Select>
               </FormControl>
             </Grid>
             <Grid item xs={6}>
@@ -154,7 +151,7 @@ const Signuppage = () => {
             <DatePicker
               label="วันเกิด"
               className="w-full"
-              onChange={(newValue :any) => {
+              onChange={(newValue: any) => {
                 setUser({
                   ...user,
                   birthDate: dayjs(newValue as dayjs.Dayjs).format(
