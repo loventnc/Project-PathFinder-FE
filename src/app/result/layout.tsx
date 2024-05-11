@@ -1,14 +1,16 @@
-import { Box,Grid ,Typography } from "@mui/material";
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { Box, Grid, Typography } from "@mui/material";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import Navbar from "@/components/Navbar";
 
-const ResultLayout = function({
-    children,
+const ResultLayout = function ({
+  children,
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-    return (
-        <Box className="bg-neutral01 mx-10 my-5 h-screen items-center">
- <Grid
+  return (
+    <>
+    <Navbar />
+      <Grid
         container
         spacing={1}
         className="flex items-center justify-center py-10"
@@ -20,14 +22,14 @@ const ResultLayout = function({
           <Typography variant="h4" className="font-bold text-primary">
             ผลลัพธ์
           </Typography>
-           <Typography variant="h6" className="flex items-center">
-            ประวัติผลลัพธ์ <ArrowForwardIosIcon/>
+          <Typography variant="h6" className="flex items-center">
+            ประวัติผลลัพธ์ <ArrowForwardIosIcon />
           </Typography>
         </Grid>
       </Grid>
-            {children}
-        </Box>
-    );
-}
+      {children}
+    </>
+  );
+};
 
 export default ResultLayout;

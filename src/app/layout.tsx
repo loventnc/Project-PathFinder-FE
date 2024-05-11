@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Box } from "@mui/material";
 import Navbar from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -18,7 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-secondary01">
         <Navbar />
-        {children}
+        <Box className="bg-neutral01 mx-10 my-5 h-screen items-center rounded-2xl">
+          {children}
+        </Box>
       </body>
     </html>
   );

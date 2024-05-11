@@ -86,7 +86,7 @@ const Loginpage = () => {
               fullWidth
             />
             <Link
-              href={""}
+              href={"/authenrize/forgetpassword"}
               className="flex text-sm justify-end text-neutral04 mt-3"
             >
               <Typography>ลืมรหัสผ่าน?</Typography>
