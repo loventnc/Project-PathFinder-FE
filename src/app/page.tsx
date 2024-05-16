@@ -1,10 +1,17 @@
 import { Grid, Box, Typography, TextField, Button } from "@mui/material";
 import Image from "next/image";
-import home from "@/asset/img/homepic.svg"; // Import the image
+import home from "@/asset/img/homepic.svg";
 
 const HomePage: React.FC = () => {
   return (
-    <Box bgcolor="#FFFFFF" borderRadius={4}>
+    <Box
+      bgcolor="#FFFFFF"
+      borderRadius={4}
+      minHeight="100vh"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+    >
       <Grid container>
         {/* Left*/}
         <Grid
@@ -34,10 +41,9 @@ const HomePage: React.FC = () => {
             </Typography>
             <Button
               variant="contained"
-              color="primary"
               size="large"
               style={{ marginTop: 16 }}
-              className="font-bold"
+              className="font-bold bg-accent01 hover:bg-accent02"
             >
               เริ่มทำแบบทดสอบ
             </Button>
