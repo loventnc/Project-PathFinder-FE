@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Grid,
@@ -12,43 +14,30 @@ import {
   Divider,
 } from "@mui/material";
 import SwapVertIcon from "@mui/icons-material/SwapVert";
+import { axiosInstance } from "@/lib/axiosInstance";
+import { useRouter } from "next/navigation";
 
-const HistoryPage: React.FC = () => {
-  const results = [
-    { date: "18 เมษายน 2567", title: "นักธุรกิจ" },
-    { date: "15 เมษายน 2567", title: "นักธุรกิจ" },
-    { date: "29 มีนาคม 2567", title: "นักธุรกิจ" },
-    { date: "29 มีนาคม 2567", title: "นักธุรกิจ" },
-    { date: "28 มีนาคม 2567", title: "นักธุรกิจ" },
-    { date: "21 มีนาคม 2567", title: "นักธุรกิจ" },
-    { date: "17 มีนาคม 2567", title: "นักธุรกิจ" },
-    { date: "12 มีนาคม 2567", title: "นักธุรกิจ" },
-    { date: "05 มีนาคม 2567", title: "นักธุรกิจ" },
-  ];
+const Historypage = () => {
+  const [historyData, setHistoryData] = useState([]);
 
-  const sortedResults = results.map((result) => {
-    const [day, month, year] = result.date.split(" ");
-    const monthIndex = [
-      "มกราคม",
-      "กุมภาพันธ์",
-      "มีนาคม",
-      "เมษายน",
-      "พฤษภาคม",
-      "มิถุนายน",
-      "กรกฎาคม",
-      "สิงหาคม",
-      "กันยายน",
-      "ตุลาคม",
-      "พฤศจิกายน",
-      "ธันวาคม",
-    ].indexOf(month);
+  const router = useRouter();
 
-    const timestamp = new Date(`${year}-${monthIndex + 1}-${day}`).getTime();
-    return { ...result, timestamp };
-  });
+  useEffect(() => {
+    const fetchHistoryData = async () => {
+      try {
+        const response = await axiosInstance.get(
+          "/api/user/quizz/getresultByUserID"
+        );
+        setHistoryData(response.data);
+      } catch (error) {
+        console.error("Error fetching user history data:", error);
+      }
+    };
 
-  sortedResults.sort((a, b) => a.timestamp - b.timestamp);
+    fetchHistoryData();
+  }, []);
 
+  console.log(historyData);
   return (
     <Box sx={{ backgroundColor: "#E5F1FB", minHeight: "100vh" }}>
       <Box
@@ -79,7 +68,7 @@ const HistoryPage: React.FC = () => {
         </Grid>
         <Divider sx={{ my: 2, backgroundColor: "#4D4D4D" }} />
         <List>
-          {sortedResults.map((result, index) => (
+          {historyData.map((item, index) => (
             <ListItem
               key={index}
               sx={{
@@ -88,16 +77,18 @@ const HistoryPage: React.FC = () => {
                 alignItems: "center",
               }}
             >
-              <ListItemAvatar>
-                <Avatar alt="Result Icon" src="/path/to/icon.png" />
-              </ListItemAvatar>
-              <ListItemText primary={result.title} />
+              {item.photo ? (
+                <ListItemAvatar>
+                  <Avatar alt="Result Icon" src={item.photo} />
+                </ListItemAvatar>
+              ) : null}
+              <ListItemText primary={item.title} />
               <Typography
                 variant="body2"
                 color="textSecondary"
                 sx={{ ml: "auto" }}
               >
-                {result.date}
+                {item.date}
               </Typography>
             </ListItem>
           ))}
@@ -107,4 +98,4 @@ const HistoryPage: React.FC = () => {
   );
 };
 
-export default HistoryPage;
+export default Historypage;
