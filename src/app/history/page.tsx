@@ -6,30 +6,28 @@ import SwapVertIcon from "@mui/icons-material/SwapVert";
 import { axiosInstance } from "@/lib/axiosInstance";
 import { useRouter } from "next/navigation";
 import HistoryItem from "./component/HistoryItem";
+import { JobListInterface } from "@/interface/JobListInterface";
 
 const Historypage = () => {
-  const [historyData, setHistoryData] = useState([]);
+  const [historyData, setHistoryData] = useState<JobListInterface[]>([]);
   const router = useRouter();
 
-  useEffect(() => {
-    const fetchHistoryData = async () => {
-      try {
-        const response = await axiosInstance.get(
-          "/api/user/quizz/getresultByUserID"
-        );
-        console.log("Fetched data:", response.data);
-        setHistoryData(response.data);
-      } catch (error) {
-        console.error("Error fetching user history data:", error);
-      }
-    };
+  const fetchHistoryData = async () => {
+    try {
+      const response = await axiosInstance.get(
+        "/api/user/quizz/getresultByUserID"
+      );
+      setHistoryData(response.data);
+    } catch (error) {
+      console.error("Error fetching user history data:", error);
+    }
+  };
 
+  useEffect(() => {
     fetchHistoryData();
   }, []);
 
-  if (historyData.length === 0) {
-    return <Typography>Loading...</Typography>;
-  }
+  console.log(historyData);
 
   return (
     <Box sx={{ backgroundColor: "#E5F1FB", minHeight: "100vh" }}>
@@ -61,8 +59,8 @@ const Historypage = () => {
         </Grid>
         <Divider sx={{ my: 2, backgroundColor: "#4D4D4D" }} />
         <List>
-          {historyData.map((item, index) => (
-            <HistoryItem key={index} item={item} />
+          {historyData.map((item, index : number) => (
+            <HistoryItem key={index} title={item.jobID?.jobTitle} date={item.datePrdict} photo={item.jobID?.Image} id={item._id} />
           ))}
         </List>
       </Box>

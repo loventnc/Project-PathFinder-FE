@@ -56,7 +56,7 @@ const Navbar = () => {
       <Box className="flex gap-10 items-center text-lg">
         <Link href="/">หน้าหลัก</Link>
         <Link href="/predict">แบบทดสอบ</Link>
-        <Link href={""}>ผลลัพธ์</Link>
+        <Link href={"/history"}>ผลลัพธ์</Link>
         <Link href={"/community"}>ชุมชน</Link>
 
         {isLogin != false ? (

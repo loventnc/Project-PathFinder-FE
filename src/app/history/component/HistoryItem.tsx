@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   ListItem,
@@ -6,32 +7,33 @@ import {
   Avatar,
   Typography,
 } from "@mui/material";
+import { useRouter } from "next/navigation";
 
 interface HistoryItemProps {
-  item: {
-    title: string;
-    photo?: string;
-    date: string;
-  };
+  id: string;
+  title: string;
+  date: string;
+  photo?: string;
 }
 
-const HistoryItem: React.FC<HistoryItemProps> = ({ item }) => {
+const HistoryItem: React.FC<HistoryItemProps> = ({ title , date , photo , id }) => {
+  const router = useRouter();
   return (
-    <ListItem
+    <ListItem onClick={() => router.push(`/result/${id}`)}
       sx={{
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
       }}
     >
-      {item.photo && (
+      {photo && (
         <ListItemAvatar>
-          <Avatar alt="Result Icon" src={item.photo} />
+          <Avatar alt="Result Icon" src={photo} />
         </ListItemAvatar>
       )}
-      <ListItemText primary={item.title} />
+      <ListItemText primary={title} />
       <Typography variant="body2" color="textSecondary" sx={{ ml: "auto" }}>
-        {item.date}
+        {date}
       </Typography>
     </ListItem>
   );
