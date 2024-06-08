@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 import { axiosInstance } from "@/lib/axiosInstance";
 import { useState, useEffect } from "react";
 import { ResultInterface } from "@/interface/QuizzInterface";
-import { Grid} from "@mui/material";
+import { Grid } from "@mui/material";
 import CardJob from "../components/CardJob";
 import JobDetail from "../components/JobDetail";
 const ResultPage = () => {
