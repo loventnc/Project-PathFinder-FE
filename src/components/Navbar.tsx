@@ -27,13 +27,12 @@ const Navbar = () => {
     }
   };
 
-
   useEffect(() => {
     fetchUserdata();
   }, []);
 
   useEffect(() => {
-    setIsLogin(user !== undefined)
+    setIsLogin(user !== undefined);
   }, [user]);
 
   const handleLogout = async () => {
