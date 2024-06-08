@@ -11,7 +11,7 @@ const HomePage: React.FC = () => {
       display="flex"
       justifyContent="center"
       alignItems="center"
-      mx={6}
+      mx={5}
     >
       <Grid container>
         {/* Left*/}

@@ -6,7 +6,10 @@ const QuizzLayout = function ({
   children: React.ReactNode;
 }>) {
   return (
-    <Box className="bg-neutral01 mx-10 my-5 h-screen items-center">
+    <Box
+      className="bg-neutral01 mx-10 my-5 h-screen items-center"
+      borderRadius={4}
+    >
       <Grid
         container
         spacing={1}

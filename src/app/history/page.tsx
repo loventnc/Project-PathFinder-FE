@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Box,
   Grid,
@@ -8,6 +9,7 @@ import {
   ListItemAvatar,
   ListItemText,
   Avatar,
+  Divider,
 } from "@mui/material";
 import SwapVertIcon from "@mui/icons-material/SwapVert";
 
@@ -24,6 +26,29 @@ const HistoryPage: React.FC = () => {
     { date: "05 มีนาคม 2567", title: "นักธุรกิจ" },
   ];
 
+  const sortedResults = results.map((result) => {
+    const [day, month, year] = result.date.split(" ");
+    const monthIndex = [
+      "มกราคม",
+      "กุมภาพันธ์",
+      "มีนาคม",
+      "เมษายน",
+      "พฤษภาคม",
+      "มิถุนายน",
+      "กรกฎาคม",
+      "สิงหาคม",
+      "กันยายน",
+      "ตุลาคม",
+      "พฤศจิกายน",
+      "ธันวาคม",
+    ].indexOf(month);
+
+    const timestamp = new Date(`${year}-${monthIndex + 1}-${day}`).getTime();
+    return { ...result, timestamp };
+  });
+
+  sortedResults.sort((a, b) => a.timestamp - b.timestamp);
+
   return (
     <Box sx={{ backgroundColor: "#E5F1FB", minHeight: "100vh" }}>
       <Box
@@ -31,7 +56,7 @@ const HistoryPage: React.FC = () => {
           backgroundColor: "#FFFFFF",
           borderRadius: 4,
           maxWidth: "100%",
-          mx: 8,
+          mx: 5,
           p: 4,
         }}
       >
@@ -52,8 +77,9 @@ const HistoryPage: React.FC = () => {
             </Button>
           </Grid>
         </Grid>
+        <Divider sx={{ my: 2, backgroundColor: "#4D4D4D" }} />
         <List>
-          {results.map((result, index) => (
+          {sortedResults.map((result, index) => (
             <ListItem
               key={index}
               sx={{
