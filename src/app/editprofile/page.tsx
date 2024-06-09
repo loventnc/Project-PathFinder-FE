@@ -6,8 +6,16 @@ import Image from 'next/image'
 import badnner from '@/asset/img/editprofile.svg'
 import { useState , useEffect } from 'react';
 import { axiosInstance } from '@/lib/axiosInstance';
+import { userInterface } from '@/interface/CommunityInterface';
+
 
 const EditProfilepage = () => {
+
+
+  const [user, setUser] = useState<userInterface>({});
+
+
+
 
   const [editData, setEditData] = useState({
     firstname: "",
@@ -34,6 +42,24 @@ const EditProfilepage = () => {
       console.log(error);
     }
   };
+
+
+  const fetchUser = async () => {
+    try {
+        await axiosInstance.get("/api/user/getuserbyid").then((res) => {
+          setUser(res.data)
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
 
   
 
@@ -73,7 +99,7 @@ const EditProfilepage = () => {
               <TextField
                 id="outlined-basic"
                 label="ชื่อจริง"
-                placeholder="ชื่อจริง"
+                placeholder={user.firstname}
                 name="firstname"
                 variant="outlined"
                 type="text"
@@ -85,7 +111,7 @@ const EditProfilepage = () => {
               <TextField
                 id="outlined-basic"
                 label="นามสกุล"
-                placeholder="นามสกุล"
+                placeholder={user.lastname}
                 name="lastname"
                 variant="outlined"
                 type="text"
@@ -97,7 +123,7 @@ const EditProfilepage = () => {
           <TextField
             id="outlined-basic"
             label="ชื่อผู้ใช้"
-            placeholder="ชื่อผู้ใช้"
+            placeholder={user.username}
             name="username"
             variant="outlined"
             type="text"
@@ -107,7 +133,7 @@ const EditProfilepage = () => {
           <TextField
             id="outlined-basic"
             label="อีเมล"
-            placeholder="อีเมล"
+            placeholder={user.email}
             name="email"
             variant="outlined"
             type="text"

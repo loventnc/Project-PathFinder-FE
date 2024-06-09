@@ -22,10 +22,12 @@ const Loginpage = () => {
     });
   };
 
-  const handleSubmit = () => {
-    axiosInstance
+  const handleSubmit = async (e : any) => {
+    e.preventDefault();
+    await axiosInstance
       .post("/api/user/login", user)
       .then(async () => {
+        window.location.reload();
         await router.push("/", { scroll: false });
       })
       .catch((err) => {
