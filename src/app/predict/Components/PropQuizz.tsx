@@ -43,7 +43,7 @@ const PropQuizz = () => {
               />
             </Box>
             <Typography
-              variant="h4"
+              variant="h5"
               className="flex justify-center font-bold font-noto"
             >
               {quizz.quizzTitle}
