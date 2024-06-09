@@ -1,4 +1,3 @@
-
 "use client";
 import React from "react";
 import { Box, Typography, Button } from "@mui/material";
@@ -12,7 +11,7 @@ const HomePage = () => {
     <Box
       bgcolor="#FFFFFF"
       borderRadius={4}
-      minHeight="100vh"
+      minHeight={{ xs: "50vh", sm: "70vh", md: "80vh", lg: "10vh" }}
       display="flex"
       justifyContent="center"
       alignItems="center"
@@ -64,9 +63,9 @@ const HomePage = () => {
                 variant="contained"
                 size="large"
                 className="font-bold font-noto bg-accent01 hover:bg-accent02 mt-4
-                 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl
-                 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-9
-                 py-1 sm:py-2 md:py-3 lg:py-4 xl:py-5"
+                text-[6px] sm:text-[8px] md:text-[12px] lg:text-[16px]
+                 px-0 sm:px-1 md:px-2 lg:px-4 xl:px-6
+                 py-0 sm:py-1 md:py-1 lg:py-2 xl:py-3"
               >
                 เริ่มทำแบบทดสอบ
               </Button>

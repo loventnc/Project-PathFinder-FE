@@ -109,8 +109,15 @@ const Navbar = () => {
   return (
     <Box className="bg-neutral01 flex items-center justify-between px-10 mx-10 my-5 rounded-xl h-14 font-noto">
       <Box className="flex h-full items-center">
-        <Image src={logoPath} alt="logo" />
-        <Typography variant="h5" className="font-bold font-noto">
+        <Image
+          src={logoPath}
+          alt="logo"
+          className="w-[40px] h-[28px] sm:w-[48px] sm:h-[32px] md:w-[64px] md:h-[48px]"
+        />
+        <Typography
+          variant="h5"
+          className="text-[12px] md:text-[16px] lg:text-[24px] font-bold font-noto"
+        >
           PathFinder
         </Typography>
       </Box>
