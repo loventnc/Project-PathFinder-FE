@@ -1,6 +1,7 @@
 import { Noto_Sans_Thai } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const Noto_Sans_Thai_init = Noto_Sans_Thai({
   subsets: ["latin"],
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body className={`bg-secondary01 font-noto`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
