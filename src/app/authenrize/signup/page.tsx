@@ -46,10 +46,11 @@ const Signuppage = () => {
     });
   };
 
-  const handleSubmit = () => {
-    axiosInstance
+  const handleSubmit = async () => {
+  await axiosInstance
       .post("/api/user/register", user)
       .then(async () => {
+        window.location.reload();
         await router.push("/", { scroll: false });
       })
       .catch((err) => {
