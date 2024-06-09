@@ -60,7 +60,10 @@ const ModalComunityPost = ({
               </Button>
             </Grid>
             <Grid item xs={10} className="flex justify-center font-noto">
-              <Typography variant="h4" className="font-bold font-noto">
+              <Typography
+                variant="h4"
+                className="text-[18px] sm:text-[24px] md:text-[30px] lg:text-[34px] font-bold font-noto"
+              >
                 สร้างโพสต์
               </Typography>
             </Grid>

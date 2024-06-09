@@ -42,13 +42,27 @@ const CommunityPage = () => {
         className="flex items-center justify-center py-10"
       >
         <Grid item xs={0}>
-          <Box height={54} width={12} className="bg-accent01"></Box>
+          <Box
+            height={{
+              xs: "30px",
+              sm: "35px",
+              md: "40px",
+              lg: "45px",
+            }}
+            width={{
+              xs: "4px",
+              sm: "8px",
+              md: "12px",
+              lg: "15px",
+            }}
+            className="bg-accent01"
+          ></Box>
         </Grid>
         <Grid item xs={10}>
           <Box className="flex gap-x-5 items-center font-noto">
             <Typography
               variant="h4"
-              className="font-bold text-primary font-noto"
+              className="text-[18px] sm:text-[24px] md:text-[30px] lg:text-[34px] font-bold text-primary font-noto"
             >
               ชุมชุน แลกเปลี่ยนและพูดคุย
             </Typography>
@@ -74,8 +88,17 @@ const CommunityPage = () => {
         </Grid>
       </Grid>
       <Box
-        component={"div"}
-        className="grid grid-cols-3 justify-items-center gap-y-10 my-5 py-5"
+        component="div"
+        className="grid gap-y-10 my-5 py-5"
+        sx={{
+          gridTemplateColumns: {
+            xs: "repeat(1, minmax(0, 1fr))",
+            sm: "repeat(2, minmax(0, 1fr))",
+            md: "repeat(3, minmax(0, 1fr))",
+            lg: "repeat(4, minmax(0, 1fr))",
+          },
+          justifyItems: "center",
+        }}
       >
         {communityData.map((data: CommunityInterface, index: number) => {
           return <CardCommunity key={index} communityData={data} />;
