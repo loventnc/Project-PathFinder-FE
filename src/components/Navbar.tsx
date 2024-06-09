@@ -63,7 +63,9 @@ const Navbar = () => {
           <>
             <Box className="flex items-center ">
               <PersonOutlineOutlinedIcon className="mr-2" />
-              <Typography variant="body1">{user?.username}</Typography>
+              <Link href={"/editprofile"}>
+                <Typography variant="body1">{user?.username}</Typography>
+              </Link>
             </Box>
             <Link href="/profile"></Link>
             <Button variant="text" onClick={handleLogout}>
