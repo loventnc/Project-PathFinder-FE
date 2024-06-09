@@ -39,7 +39,7 @@ const HomePage = () => {
             <Typography
               variant="h5"
               color="primary"
-              className="text-[8px] sm:text-[12px] md:text-[16px] lg:text-[24px] font-bold font-noto"
+              className="text-[12px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-bold font-noto"
             >
               “สร้างเส้นทางสู่อนาคตที่สำคัญของคุณ”
             </Typography>

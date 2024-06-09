@@ -44,11 +44,11 @@ const PropQuizz = () => {
             </Box>
             <Typography
               variant="h5"
-              className="flex justify-center font-bold font-noto"
+              className="text-[12px] sm:text-[16px] md:text-[20px] lg:text-[24px] flex justify-center font-bold font-noto"
             >
               {quizz.quizzTitle}
             </Typography>
-            <Box className="px-32">
+            <Box className="px-4 sm:px-8 md:px-16 lg:px-32">
               <RadioGroup
                 className="w-full"
                 onChange={handelChange}
@@ -59,7 +59,7 @@ const PropQuizz = () => {
                   return (
                     <Radio
                       key={choise._id}
-                      className="bg-secondary02 w-full h-[48px] items-center px-5 font-noto"
+                      className="text-xs sm:text-sm md:text-base lg:text-lg bg-secondary02 w-full h-12 items-center px-5 font-noto"
                       value={choise._id}
                       label={`${index + 1}. ${choise.answer}`}
                     ></Radio>
