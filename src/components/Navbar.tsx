@@ -53,11 +53,28 @@ const Navbar = () => {
           PathFinder
         </Typography>
       </Box>
-      <Box className="flex gap-10 items-center text-lg font-noto">
-        <Link href="/">หน้าหลัก</Link>
-        <Link href="/predict">แบบทดสอบ</Link>
-        <Link href={"/history"}>ผลลัพธ์</Link>
-        <Link href={"/community"}>ชุมชน</Link>
+      <Box className="flex gap-10 items-center text-lg font-noto ">
+        <Link href="/" className="hover:text-primary01 focus:text-primary01">
+          หน้าหลัก
+        </Link>
+        <Link
+          href="/predict"
+          className="hover:text-primary01 focus:text-primary01"
+        >
+          แบบทดสอบ
+        </Link>
+        <Link
+          href={"/history"}
+          className="hover:text-primary01 focus:text-primary01"
+        >
+          ผลลัพธ์
+        </Link>
+        <Link
+          href={"/community"}
+          className="hover:text-primary01 focus:text-primary01"
+        >
+          ชุมชน
+        </Link>
 
         {isLogin != false ? (
           <>

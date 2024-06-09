@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
         textAlign: "center",
       }}
     >
-      <Typography variant="body2" gutterBottom>
+      <Typography variant="body2" gutterBottom className="font-noto">
         @ 2024 PathFinder | CSS 234 Web Programming II
       </Typography>
     </Box>
