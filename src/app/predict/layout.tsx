@@ -18,8 +18,8 @@ const QuizzLayout = function ({
         <Grid item xs={0}>
           <Box height={54} width={12} className="bg-accent01"></Box>
         </Grid>
-        <Grid item xs={11}>
-          <Typography variant="h4" className="font-bold text-primary">
+        <Grid item xs={11} className="font-noto">
+          <Typography variant="h4" className="font-bold text-primary font-noto">
             แบบทดสอบค้นหาอาชีพที่เหมาะสม
           </Typography>
         </Grid>

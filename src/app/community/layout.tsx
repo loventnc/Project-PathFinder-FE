@@ -9,7 +9,8 @@ const Communitylayout = ({
       <Box
         marginX={10}
         marginY={5}
-      className="bg-neutral01 mx-10 my-5 min-h-screen max-h-auto items-center rounded-2xl overflow-hidden">
+        className="bg-neutral01 mx-10 my-5 min-h-screen max-h-auto items-center rounded-2xl overflow-hidden font-noto"
+      >
         {children}
       </Box>
     </>

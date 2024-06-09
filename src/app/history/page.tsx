@@ -47,20 +47,37 @@ const Historypage = () => {
           justifyContent="space-between"
         >
           <Grid item>
-            <Typography variant="h5" className="font-bold" color="primary">
+            <Typography
+              variant="h5"
+              className="font-bold font-noto"
+              color="primary"
+            >
               ประวัติผลลัพธ์
             </Typography>
           </Grid>
           <Grid item>
-            <Button variant="outlined" endIcon={<SwapVertIcon />}>
+            <Button
+              variant="outlined"
+              className="font-noto"
+              endIcon={<SwapVertIcon />}
+            >
               ล่าสุด
             </Button>
           </Grid>
         </Grid>
-        <Divider sx={{ my: 2, backgroundColor: "#4D4D4D" }} />
-        <List>
-          {historyData.map((item, index : number) => (
-            <HistoryItem key={index} title={item.jobID?.jobTitle} date={item.datePrdict} photo={item.jobID?.Image} id={item._id} />
+        <Divider
+          sx={{ my: 2, backgroundColor: "#4D4D4D" }}
+          className="font-noto"
+        />
+        <List className="font-noto">
+          {historyData.map((item, index: number) => (
+            <HistoryItem
+              key={index}
+              title={item.jobID?.jobTitle}
+              date={item.datePrdict}
+              photo={item.jobID?.Image}
+              id={item._id}
+            />
           ))}
         </List>
       </Box>

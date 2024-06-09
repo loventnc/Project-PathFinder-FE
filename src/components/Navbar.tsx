@@ -46,14 +46,14 @@ const Navbar = () => {
   };
 
   return (
-    <Box className="bg-neutral01 flex items-center justify-between px-10 mx-10 my-5 rounded-xl h-14">
+    <Box className="bg-neutral01 flex items-center justify-between px-10 mx-10 my-5 rounded-xl h-14 font-noto">
       <Box className="flex h-full items-center">
         <Image src={logoPath} alt="logo" />
-        <Typography variant="h5" className="font-bold">
+        <Typography variant="h5" className="font-bold font-noto">
           PathFinder
         </Typography>
       </Box>
-      <Box className="flex gap-10 items-center text-lg">
+      <Box className="flex gap-10 items-center text-lg font-noto">
         <Link href="/">หน้าหลัก</Link>
         <Link href="/predict">แบบทดสอบ</Link>
         <Link href={"/history"}>ผลลัพธ์</Link>
@@ -61,24 +61,30 @@ const Navbar = () => {
 
         {isLogin != false ? (
           <>
-            <Box className="flex items-center ">
+            <Box className="flex items-center font-noto">
               <PersonOutlineOutlinedIcon className="mr-2" />
               <Link href={"/editprofile"}>
-                <Typography variant="body1">{user?.username}</Typography>
+                <Typography variant="body1" className="font-noto">
+                  {user?.username}
+                </Typography>
               </Link>
             </Box>
             <Link href="/profile"></Link>
-            <Button variant="text" onClick={handleLogout}>
+            <Button variant="text" className="font-noto" onClick={handleLogout}>
               ออกจากระบบ
             </Button>
           </>
         ) : (
           <>
             <Link href="/authenrize/login">
-              <Button variant="contained">เข้าสู่ระบบ</Button>
+              <Button variant="contained" className="font-noto">
+                เข้าสู่ระบบ
+              </Button>
             </Link>
             <Link href="/authenrize/signup">
-              <Button variant="contained">สมัครใช้งาน</Button>
+              <Button variant="contained" className="font-noto">
+                สมัครใช้งาน
+              </Button>
             </Link>
           </>
         )}

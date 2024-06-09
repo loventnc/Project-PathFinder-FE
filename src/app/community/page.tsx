@@ -7,7 +7,7 @@ import CardCommunity from "./components/CardCommunity";
 import { CommunityInterface } from "@/interface/CommunityInterface";
 import Image from "next/image";
 import logoCommunity from "@/asset/img/Screenshot_2024-03-31_221126-transformed 1.svg";
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from "@mui/icons-material/Add";
 import ModalComunityPost from "./components/ModalComunityPost";
 
 const CommunityPage = () => {
@@ -32,7 +32,7 @@ const CommunityPage = () => {
 
   useEffect(() => {
     fetchCommunityData();
-  },[communityData]);
+  }, [communityData]);
 
   return (
     <>
@@ -45,8 +45,11 @@ const CommunityPage = () => {
           <Box height={54} width={12} className="bg-accent01"></Box>
         </Grid>
         <Grid item xs={10}>
-          <Box className="flex gap-x-5 items-center">
-            <Typography variant="h4" className="font-bold text-primary">
+          <Box className="flex gap-x-5 items-center font-noto">
+            <Typography
+              variant="h4"
+              className="font-bold text-primary font-noto"
+            >
               ชุมชุน แลกเปลี่ยนและพูดคุย
             </Typography>
             <Box>
@@ -60,10 +63,14 @@ const CommunityPage = () => {
           </Box>
         </Grid>
         <Grid item xs={0}>
-          <Button variant="contained" onClick={handleOpenModal} >
+          <Button
+            variant="contained"
+            className="font-noto"
+            onClick={handleOpenModal}
+          >
             <AddIcon />
           </Button>
-        <ModalComunityPost open={openModal} handleClose={handleCloseModal}/>
+          <ModalComunityPost open={openModal} handleClose={handleCloseModal} />
         </Grid>
       </Grid>
       <Box
