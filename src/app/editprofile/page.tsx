@@ -6,8 +6,11 @@ import Image from "next/image";
 import badnner from "@/asset/img/editprofile.svg";
 import { useState, useEffect } from "react";
 import { axiosInstance } from "@/lib/axiosInstance";
+import { userInterface } from "@/interface/CommunityInterface";
+import { log } from "console";
 
 const EditProfilepage = () => {
+  const [userData, setUserData] = useState<userInterface>();
   const [editData, setEditData] = useState({
     firstname: "",
     lastname: "",
@@ -32,6 +35,21 @@ const EditProfilepage = () => {
       console.log(error);
     }
   };
+
+  const getUserData = async () => {
+    try {
+      const res = await axiosInstance.get("/api/user/getuserbyid");
+      setUserData(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getUserData();
+  }, []);
+
+  console.log(userData);
 
   return (
     <Grid container>
@@ -72,6 +90,7 @@ const EditProfilepage = () => {
                 className="font-noto"
                 id="outlined-basic"
                 label="ชื่อจริง"
+                defaultValue={userData?.firstname}
                 placeholder="ชื่อจริง"
                 name="firstname"
                 variant="outlined"
@@ -85,6 +104,7 @@ const EditProfilepage = () => {
                 className="font-noto"
                 id="outlined-basic"
                 label="นามสกุล"
+                defaultValue={userData?.lastname}
                 placeholder="นามสกุล"
                 name="lastname"
                 variant="outlined"
@@ -98,6 +118,7 @@ const EditProfilepage = () => {
             className="font-noto"
             id="outlined-basic"
             label="ชื่อผู้ใช้"
+            defaultValue={userData?.username}
             placeholder="ชื่อผู้ใช้"
             name="username"
             variant="outlined"
@@ -110,6 +131,7 @@ const EditProfilepage = () => {
             id="outlined-basic"
             label="อีเมล"
             placeholder="อีเมล"
+            defaultValue={userData?.email}
             name="email"
             variant="outlined"
             type="text"
