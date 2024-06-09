@@ -56,17 +56,20 @@ const Loginpage = () => {
         paddingRight={"5%"}
         gap={5}
       >
-        <Box className=" text-primary">
-          <Typography variant="h3" className="font-bold">
+        <Box className=" text-primary font-noto">
+          <Typography variant="h3" className="font-bold font-noto">
             Welcome Back!
           </Typography>
-          <Typography variant="h5">ลงชื่อเข้าใช้บัญชีของคุณ</Typography>
+          <Typography variant="h5" className="font-noto">
+            ลงชื่อเข้าใช้บัญชีของคุณ
+          </Typography>
         </Box>
         <form
           onSubmit={handleSubmit}
           className="w-full flex flex-col justify-center items-center gap-y-7"
         >
           <TextField
+            className="font-noto"
             id="outlined-basic"
             label="ชื่อผู้ใช้"
             placeholder="ชื่อผู้ใช้"
@@ -78,6 +81,7 @@ const Loginpage = () => {
           />
           <Box width={"100%"}>
             <TextField
+              className="font-noto"
               id="outlined-basic"
               label="รหัสผ่าน"
               variant="outlined"
@@ -89,20 +93,26 @@ const Loginpage = () => {
             />
             <Link
               href={""}
-              className="flex text-sm justify-end text-neutral04 mt-3"
+              className="flex text-sm justify-end text-neutral04 mt-3 font-noto"
             >
-              <Typography>ลืมรหัสผ่าน?</Typography>
+              <Typography className="font-noto">ลืมรหัสผ่าน?</Typography>
             </Link>
           </Box>
           <Button type="submit" variant="contained" fullWidth size="large">
-            <Typography variant="h6">เข้าสู่ระบบ</Typography>
+            <Typography variant="h6" className="font-noto">
+              เข้าสู่ระบบ
+            </Typography>
           </Button>
         </form>
-        <Link href="/authenrize/signup" className="flex justify-center gap-x-2">
-          <Typography variant="h6" className="text-primary">
+        <Link
+          href="/authenrize/signup"
+          className="flex justify-center gap-x-2"
+          font-noto
+        >
+          <Typography variant="h6" className="text-primary font-noto">
             ยังไม่มีบัญชี?
           </Typography>
-          <Typography variant="h6" className="text-primary font-bold">
+          <Typography variant="h6" className="text-primary font-bold font-noto">
             สมัครใช้งาน
           </Typography>
         </Link>

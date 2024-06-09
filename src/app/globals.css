@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -31,3 +33,7 @@ body {
     text-wrap: balance;
   }
 } */
+
+.noto_san_thai {
+  font-family: var(--font-noto-sans-thai);
+}

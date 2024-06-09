@@ -80,10 +80,12 @@ const Signuppage = () => {
         gap={5}
       >
         <Box className=" text-primary">
-          <Typography variant="h3" className="font-bold">
+          <Typography variant="h3" className="font-bold font-noto">
             Sign Up
           </Typography>
-          <Typography variant="h5">สร้างบัญชีของคุณตอนนี้</Typography>
+          <Typography variant="h5" className="font-noto">
+            สร้างบัญชีของคุณตอนนี้
+          </Typography>
         </Box>
         <form
           onSubmit={handleSubmit}
@@ -104,6 +106,7 @@ const Signuppage = () => {
             </Grid>
             <Grid item xs={6}>
               <TextField
+                className="font-noto"
                 id="outlined-basic"
                 label="นามสกุล"
                 placeholder="นามสกุล"
@@ -120,6 +123,7 @@ const Signuppage = () => {
               <FormControl fullWidth>
                 <InputLabel>ระดับการศึกษา</InputLabel>
                 <Select
+                  className="font-noto"
                   fullWidth
                   label="ระดับการศึกษา"
                   placeholder="ระดับการศึกษา"
@@ -195,14 +199,16 @@ const Signuppage = () => {
             />
           </Box>
           <Button type="submit" variant="contained" fullWidth size="large">
-            <Typography variant="h6">สมัครใช้งาน</Typography>
+            <Typography variant="h6" className="font-noto">
+              สมัครใช้งาน
+            </Typography>
           </Button>
         </form>
         <Link href="/authenrize/login" className="flex justify-center gap-x-2">
-          <Typography variant="h6" className="text-primary">
+          <Typography variant="h6" className="text-primary font-noto">
             มีบัญชีอยู่แล้ว?
           </Typography>
-          <Typography variant="h6" className="text-primary font-bold">
+          <Typography variant="h6" className="text-primary font-bold font-noto">
             เข้าสู่ระบบ
           </Typography>
         </Link>

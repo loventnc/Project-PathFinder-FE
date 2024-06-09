@@ -14,7 +14,7 @@ const JobDetail = ({ OneDayDo, skills }: JobDetailProps) => {
         <Box>
           <Typography
             variant="h5"
-            className="font-bold text-primary border-b-2 border-primary w-fit"
+            className="font-bold text-primary border-b-2 border-primary w-fit font-noto"
           >
             ในแต่ละวันทำอะไรบ้าง
           </Typography>
@@ -22,7 +22,7 @@ const JobDetail = ({ OneDayDo, skills }: JobDetailProps) => {
             {OneDayDo?.map((item, index) => {
               return (
                 <Box key={index}>
-                  <Typography variant="h6" className="">
+                  <Typography variant="h6" className="font-noto">
                     {`${index + 1}. ${item}`}
                   </Typography>
                 </Box>
@@ -33,7 +33,7 @@ const JobDetail = ({ OneDayDo, skills }: JobDetailProps) => {
         <Box>
           <Typography
             variant="h5"
-            className="font-bold text-primary border-b-2 border-primary w-fit"
+            className="font-bold text-primary border-b-2 border-primary w-fit font-noto"
           >
             ทักษะที่ควรมี
           </Typography>
@@ -42,13 +42,15 @@ const JobDetail = ({ OneDayDo, skills }: JobDetailProps) => {
               {skills?.map((item, index) => {
                 return (
                   <ListItem key={index} nested>
-                    <ListItem >
-                      <Typography variant="h6" className="font-bold">
+                    <ListItem>
+                      <Typography variant="h6" className="font-bold font-noto">
                         {item.skill}
                       </Typography>
                     </ListItem>
                     <List marker="none">
-                      <ListItem>{item.descriptoionskill}</ListItem>
+                      <ListItem className="font-noto">
+                        {item.descriptoionskill}
+                      </ListItem>
                     </List>
                   </ListItem>
                 );

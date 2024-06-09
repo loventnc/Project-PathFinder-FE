@@ -1,8 +1,8 @@
 import React from "react";
-import { Box,Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { QuizzInterface } from "@/interface/QuizzInterface";
 import Image from "next/image";
-import { useContext} from "react";
+import { useContext } from "react";
 import { QuizzContext } from "../page";
 import { Radio, RadioGroup } from "@mui/joy";
 import Pagination from "./Pagination";
@@ -42,7 +42,12 @@ const PropQuizz = () => {
                 height={300}
               />
             </Box>
-            <Typography variant="h4" className="flex justify-center font-bold">{quizz.quizzTitle}</Typography>
+            <Typography
+              variant="h5"
+              className="flex justify-center font-bold font-noto"
+            >
+              {quizz.quizzTitle}
+            </Typography>
             <Box className="px-32">
               <RadioGroup
                 className="w-full"
@@ -54,9 +59,9 @@ const PropQuizz = () => {
                   return (
                     <Radio
                       key={choise._id}
-                      className="bg-secondary02 w-full h-[48px] items-center px-5"
+                      className="bg-secondary02 w-full h-[48px] items-center px-5 font-noto"
                       value={choise._id}
-                      label={`${index+1}. ${choise.answer}`}
+                      label={`${index + 1}. ${choise.answer}`}
                     ></Radio>
                   );
                 })}

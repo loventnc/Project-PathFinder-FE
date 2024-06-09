@@ -1,4 +1,4 @@
-import { Grid, Box, Typography, TextField, Button } from "@mui/material";
+import { Grid, Box, Typography, Button } from "@mui/material";
 import Image from "next/image";
 import home from "@/asset/img/homepic.svg";
 import Link from "next/link";
@@ -23,10 +23,18 @@ const HomePage: React.FC = () => {
           md={6}
         >
           <Box textAlign="center">
-            <Typography variant="h1" color="primary" className="font-bold">
+            <Typography
+              variant="h1"
+              color="primary"
+              className="font-bold font-noto"
+            >
               PathFinder
             </Typography>
-            <Typography variant="h5" color="primary" className="font-bold">
+            <Typography
+              variant="h5"
+              color="primary"
+              className="font-bold font-noto"
+            >
               “สร้างเส้นทางสู่อนาคตที่สำคัญของคุณ”
             </Typography>
             <Box
@@ -36,22 +44,21 @@ const HomePage: React.FC = () => {
               mt={2}
               mb={4}
             ></Box>
-            <Typography variant="body1" className="text-accent02">
+            <Typography variant="body1" className="text-accent02 font-noto">
               ช่วยให้คุณสามารถสร้างเส้นทางสู่อนาคตที่แสนสำคัญของคุณได้อย่างมั่นใจ
               <br />
               เรามีแบบทดสอบที่สามารถทำให้คุณได้รับคำแนะนำที่น่าเชื่อถือในการเลือกอาชีพที่เหมาะสม
             </Typography>
-           <Link  href={"/predict"} >
-           <Button
-              variant="contained"
-              size="large"
-              style={{ marginTop: 16 }}
-              className="font-bold bg-accent01 hover:bg-accent02"
-              
-            >
-              เริ่มทำแบบทดสอบ
-            </Button>
-           </Link> 
+            <Link href="/predict">
+              <Button
+                variant="contained"
+                size="large"
+                style={{ marginTop: 16 }}
+                className="font-bold font-noto bg-accent01 hover:bg-accent02"
+              >
+                เริ่มทำแบบทดสอบ
+              </Button>
+            </Link>
           </Box>
         </Grid>
 
