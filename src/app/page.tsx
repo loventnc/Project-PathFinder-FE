@@ -1,6 +1,7 @@
 import { Grid, Box, Typography, Button } from "@mui/material";
 import Image from "next/image";
 import home from "@/asset/img/homepic.svg";
+import Link from "next/link";
 
 const HomePage: React.FC = () => {
   return (
@@ -48,14 +49,16 @@ const HomePage: React.FC = () => {
               <br />
               เรามีแบบทดสอบที่สามารถทำให้คุณได้รับคำแนะนำที่น่าเชื่อถือในการเลือกอาชีพที่เหมาะสม
             </Typography>
-            <Button
-              variant="contained"
-              size="large"
-              style={{ marginTop: 16 }}
-              className="font-bold font-noto bg-accent01 hover:bg-accent02"
-            >
-              เริ่มทำแบบทดสอบ
-            </Button>
+            <Link href="/predict">
+              <Button
+                variant="contained"
+                size="large"
+                style={{ marginTop: 16 }}
+                className="font-bold font-noto bg-accent01 hover:bg-accent02"
+              >
+                เริ่มทำแบบทดสอบ
+              </Button>
+            </Link>
           </Box>
         </Grid>
 
