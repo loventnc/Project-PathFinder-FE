@@ -3,7 +3,7 @@
 import React from 'react'
 import { Box, Grid, Typography, TextField, Button, Link } from '@mui/material'
 import Image from 'next/image'
-import badnner from '@/asset/img/image 1.svg'
+import badnner from '@/asset/img/editprofile.svg'
 import { useState , useEffect } from 'react';
 import { axiosInstance } from '@/lib/axiosInstance';
 
