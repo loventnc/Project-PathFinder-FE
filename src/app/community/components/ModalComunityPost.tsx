@@ -59,14 +59,17 @@ const ModalComunityPost = ({
                 <KeyboardBackspace />
               </Button>
             </Grid>
-            <Grid item xs={10} className="flex justify-center">
-              <Typography variant="h4" className="font-bold">
+            <Grid item xs={10} className="flex justify-center font-noto">
+              <Typography variant="h4" className="font-bold font-noto">
                 สร้างโพสต์
               </Typography>
             </Grid>
           </Grid>
-          <form className="flex flex-col gap-y-10 " onSubmit={handleSubmit}>
-            <Box className=" bg-neutral02">
+          <form
+            className="flex flex-col gap-y-10 font-noto"
+            onSubmit={handleSubmit}
+          >
+            <Box className=" bg-neutral02 font-noto">
               <TextField
                 fullWidth
                 id="outlined-basic"

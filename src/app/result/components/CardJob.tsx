@@ -20,10 +20,13 @@ const CardJob = ({ jobTitle, jobImage, jobDescription }: CardJobProps) => {
         height={{ xs: "100%", md: "100%" }}
         className=" bg-secondary01 rounded-2xl gap-y-10 py-5 border-t-8 border-accent02"
       >
-        <Typography variant="h6" className=" text-accent02">
+        <Typography variant="h6" className=" text-accent02 font-noto">
           ลักษณะอาชีพ
         </Typography>
-        <Typography variant="h2" className=" font-bold  text-accent02">
+        <Typography
+          variant="h2"
+          className=" font-bold  text-accent02 font-noto"
+        >
           {jobTitle}
         </Typography>
         <Box>
@@ -35,7 +38,7 @@ const CardJob = ({ jobTitle, jobImage, jobDescription }: CardJobProps) => {
             placeholder="empty"
           />
         </Box>
-        <Typography variant="h6" className=" text-accent02 text-lg">
+        <Typography variant="h6" className=" text-accent02 text-lg font-noto">
           {jobDescription}
         </Typography>
       </Box>

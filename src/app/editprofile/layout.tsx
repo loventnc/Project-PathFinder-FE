@@ -8,7 +8,7 @@ const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
       justifyContent="center"
       alignItems="center"
       flexDirection="column"
-      className="bg-neutral01 mx-10 my-5 py-40 h-auto rounded-2xl"
+      className="bg-neutral01 mx-10 my-5 py-40 h-auto rounded-2xl font-noto"
     >
       {children}
     </Box>

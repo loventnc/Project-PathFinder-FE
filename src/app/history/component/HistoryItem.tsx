@@ -16,23 +16,35 @@ interface HistoryItemProps {
   photo?: string;
 }
 
-const HistoryItem: React.FC<HistoryItemProps> = ({ title , date , photo , id }) => {
+const HistoryItem: React.FC<HistoryItemProps> = ({
+  title,
+  date,
+  photo,
+  id,
+}) => {
   const router = useRouter();
   return (
-    <ListItem onClick={() => router.push(`/result/${id}`)}
+    <ListItem
+      onClick={() => router.push(`/result/${id}`)}
       sx={{
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
       }}
+      className="font-noto"
     >
       {photo && (
-        <ListItemAvatar>
+        <ListItemAvatar className="font-noto">
           <Avatar alt="Result Icon" src={photo} />
         </ListItemAvatar>
       )}
-      <ListItemText primary={title} />
-      <Typography variant="body2" color="textSecondary" sx={{ ml: "auto" }}>
+      <ListItemText primary={title} className="font-noto" />
+      <Typography
+        variant="body2"
+        color="textSecondary"
+        sx={{ ml: "auto" }}
+        className="font-noto"
+      >
         {date}
       </Typography>
     </ListItem>

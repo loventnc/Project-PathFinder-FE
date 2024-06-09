@@ -19,13 +19,18 @@ const CardCommunity = ({
     <Card sx={{ maxWidth: 345 }} className=" rounded-3xl w-full">
       <Link href={`/community/${communityData._id}`} className="w-full">
         <CardMedia
-          sx={{ height: 300 ,width : 300 }}
+          sx={{ height: 300, width: 300 }}
           image={communityData.PostImage}
           title="post image"
           className="rounded-3xl my-5 mx-5"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            className="font-noto"
+          >
             {communityData.PostTitle}
           </Typography>
         </CardContent>

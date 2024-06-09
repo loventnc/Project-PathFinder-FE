@@ -8,7 +8,8 @@ import { useRouter } from "next/navigation";
 
 const Pagination = () => {
   const router = useRouter();
-  const { totalQuizz, quizzperPage, paginate, currentPage, choiseID } = useContext(QuizzContext);
+  const { totalQuizz, quizzperPage, paginate, currentPage, choiseID } =
+    useContext(QuizzContext);
 
   const pageNumbers: number[] = [];
 
@@ -19,10 +20,12 @@ const Pagination = () => {
   const handleNextQuizz = () => {
     pageNumbers.map((number) => {
       if (currentPage === totalQuizz) {
-        axiosInstance.post("/api/user/quizz/predict", { choiseARR : choiseID }).then((res) => {
-          router.push(`/result/${res.data.result}`);
-          // console.log(res.data.result);
-        });
+        axiosInstance
+          .post("/api/user/quizz/predict", { choiseARR: choiseID })
+          .then((res) => {
+            router.push(`/result/${res.data.result}`);
+            // console.log(res.data.result);
+          });
         return false;
       }
       if (currentPage === number) {
@@ -42,12 +45,16 @@ const Pagination = () => {
     });
   };
 
-  
-
   return (
-    <Box className="flex justify-between px-32">
-      <Button onClick={handlePrevQuizz}>ย้อนกลับ</Button>
-      <Button variant="contained" onClick={handleNextQuizz}>
+    <Box className="flex justify-between px-32 font-noto">
+      <Button onClick={handlePrevQuizz} className="font-noto">
+        ย้อนกลับ
+      </Button>
+      <Button
+        variant="contained"
+        onClick={handleNextQuizz}
+        className="font-noto"
+      >
         {currentPage === totalQuizz ? "ส่งคำตอบ" : "ถัดไป"}
       </Button>
     </Box>
