@@ -54,12 +54,15 @@ const Navbar = () => {
         </Typography>
       </Box>
       <Box className="flex gap-10 items-center text-lg font-noto ">
-        <Link href="/" className="hover:text-primary01 focus:text-primary01">
+        <Link
+          href="/"
+          className="hover:text-primary01 active:text-primary01 focus:text-primary01 "
+        >
           หน้าหลัก
         </Link>
         <Link
           href="/predict"
-          className="hover:text-primary01 focus:text-primary01"
+          className="hover:text-primary01 focus:text-primary01 "
         >
           แบบทดสอบ
         </Link>
@@ -78,10 +81,13 @@ const Navbar = () => {
 
         {isLogin != false ? (
           <>
-            <Box className="flex items-center font-noto">
-              <PersonOutlineOutlinedIcon className="mr-2" />
-              <Link href={"/editprofile"}>
-                <Typography variant="body1" className="font-noto">
+            <Box className="flex items-center font-noto focus:text-primary01">
+              <Link
+                href={"/editprofile"}
+                className="flex flex-row focus:text-primary01"
+              >
+                <PersonOutlineOutlinedIcon className="mr-2  " />
+                <Typography variant="body1" className="font-noto ">
                   {user?.username}
                 </Typography>
               </Link>
