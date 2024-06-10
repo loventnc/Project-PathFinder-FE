@@ -82,6 +82,7 @@ const CommunitypageByID = () => {
       })
       .catch((err) => {
         console.log(err);
+        Swal.fire("กรุณาเข้าสู่ระบบ", "", "error");
       });
   };
 
@@ -224,6 +225,7 @@ const CommunitypageByID = () => {
         handleClose={handleCloseModal}
         PostTitle={communityDataByID?.PostTitle}
         descriptionPost={communityDataByID?.descriptionPost}
+        id={community_id}
       />
     </>
   );

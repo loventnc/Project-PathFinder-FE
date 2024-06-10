@@ -46,7 +46,8 @@ const Signuppage = () => {
     });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e : any) => {
+    e.preventDefault();
     await axiosInstance
       .post("/api/user/register", user)
       .then(async () => {

@@ -8,10 +8,12 @@ import { axiosInstance } from "@/lib/axiosInstance";
 const ModalUpdate = ({
   open,
   handleClose,
+  id,
 PostTitle,
 descriptionPost
 }: {
   open: any;
+  id : any;
   handleClose: any;
   PostTitle : any;
   descriptionPost : any;
@@ -46,7 +48,7 @@ descriptionPost
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      await axiosInstance.post("/post/updatepost/", formData);
+      await axiosInstance.put(`/api/user/post/updatepost/${id}`, formData);
       handleClose();
     } catch (error) {
       console.log(error);
@@ -75,8 +77,6 @@ descriptionPost
                 fullWidth
                 id="outlined-basic"
                 label="หัวข้อ"
-                value={PostTitle}
-
                 variant="outlined"
                 name="PostTitle"
                 onChange={handleChange}
@@ -86,7 +86,6 @@ descriptionPost
               <textarea
                 className="w-full h-40 bg-neutral02"
                 placeholder="เนื้อหา"
-                value={descriptionPost}
                 name="descriptionPost"
                 onChange={handleChange}
               />

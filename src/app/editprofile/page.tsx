@@ -49,7 +49,6 @@ const EditProfilepage = () => {
     getUserData();
   }, []);
 
-  console.log(userData);
 
   return (
     <Grid container>
@@ -95,7 +94,7 @@ const EditProfilepage = () => {
               <TextField
                 className="font-noto"
                 id="outlined-basic"
-                label="ชื่อจริง"
+                // label="ชื่อจริง"
                 defaultValue={userData?.firstname}
                 placeholder="ชื่อจริง"
                 name="firstname"
@@ -109,7 +108,7 @@ const EditProfilepage = () => {
               <TextField
                 className="font-noto"
                 id="outlined-basic"
-                label="นามสกุล"
+                // label="นามสกุล"
                 defaultValue={userData?.lastname}
                 placeholder="นามสกุล"
                 name="lastname"
@@ -123,7 +122,7 @@ const EditProfilepage = () => {
           <TextField
             className="font-noto"
             id="outlined-basic"
-            label="ชื่อผู้ใช้"
+            // label="ชื่อผู้ใช้"
             defaultValue={userData?.username}
             placeholder="ชื่อผู้ใช้"
             name="username"
@@ -135,7 +134,7 @@ const EditProfilepage = () => {
           <TextField
             className="font-noto"
             id="outlined-basic"
-            label="อีเมล"
+            // label="อีเมล"
             placeholder="อีเมล"
             defaultValue={userData?.email}
             name="email"
