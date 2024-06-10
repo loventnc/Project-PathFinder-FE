@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useRouter } from "next/navigation";
+import dayjs from "dayjs";
 
 interface HistoryItemProps {
   id: string;
@@ -45,7 +46,7 @@ const HistoryItem: React.FC<HistoryItemProps> = ({
         sx={{ ml: "auto" }}
         className="font-noto"
       >
-        {date}
+        {dayjs(date).format("DD/MM/YYYY")}
       </Typography>
     </ListItem>
   );

@@ -9,6 +9,7 @@ import Image from "next/image";
 import logoCommunity from "@/asset/img/Screenshot_2024-03-31_221126-transformed 1.svg";
 import AddIcon from "@mui/icons-material/Add";
 import ModalComunityPost from "./components/ModalComunityPost";
+import Swal from "sweetalert2";
 
 const CommunityPage = () => {
   const [communityData, setCommunityData] = useState([]);

@@ -4,6 +4,7 @@ import { KeyboardBackspace, InsertPhoto } from "@mui/icons-material";
 import { useState } from "react";
 import Image from "next/image";
 import { axiosInstance } from "@/lib/axiosInstance";
+import Swal from "sweetalert2";
 
 const ModalComunityPost = ({
   open,
@@ -46,6 +47,8 @@ const ModalComunityPost = ({
       handleClose();
     } catch (error) {
       console.log(error);
+      handleClose();
+      Swal.fire("กรุณาเข้าสู่ระบบ", "", "error");
     }
   };
 
