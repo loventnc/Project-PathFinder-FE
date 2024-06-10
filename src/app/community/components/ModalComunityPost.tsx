@@ -52,7 +52,24 @@ const ModalComunityPost = ({
   return (
     <>
       <Modal open={open} onClose={handleClose}>
-        <Box className=" bg-neutral01 rounded-2xl max-h-auto min-h-96 flex flex-col gap-y-10  p-10 m-10">
+        <Box
+          className="
+    bg-neutral01 
+    rounded-2xl 
+    max-h-auto 
+    min-h-96 
+    flex 
+    flex-col 
+    gap-y-10 
+    p-4
+    sm:p-6 
+    md:p-8 
+    lg:p-10 
+    m-2 
+    sm:m-4 
+    md:m-6 
+    lg:m-10"
+        >
           <Grid container>
             <Grid item xs={1}>
               <Button onClick={handleClose}>
