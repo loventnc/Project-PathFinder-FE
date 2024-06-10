@@ -46,14 +46,19 @@ const Pagination = () => {
   };
 
   return (
-    <Box className="flex justify-between px-32 font-noto">
-      <Button onClick={handlePrevQuizz} className="font-noto">
+    <Box className="flex flex-col sm:flex-row justify-between px-4 sm:px-8 md:px-16 lg:px-32 font-noto">
+      <Button
+        onClick={handlePrevQuizz}
+        className="text-xs sm:text-sm md:text-base lg:text-lg font-noto w-full sm:w-auto mb-2 sm:mb-0 "
+        sx={{ minHeight: "1rem", padding: "0.2rem" }}
+      >
         ย้อนกลับ
       </Button>
       <Button
         variant="contained"
         onClick={handleNextQuizz}
-        className="font-noto"
+        className="text-xs sm:text-sm md:text-base lg:text-lg font-noto w-full sm:w-auto"
+        sx={{ minHeight: "1rem", padding: "0.2rem" }}
       >
         {currentPage === totalQuizz ? "ส่งคำตอบ" : "ถัดไป"}
       </Button>

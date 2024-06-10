@@ -118,7 +118,6 @@ const CommunitypageByID = () => {
     setOpenModal(true);
   };
 
-
   const day = dayjs(communityDataByID?.dateCreate).format("DD/MM/YYYY");
 
   return (
@@ -137,12 +136,23 @@ const CommunitypageByID = () => {
       <Box py={5} px={5}>
         <Grid container spacing={2} className=" border-b-2">
           <Grid item md={11} display={"grid"} gap={2} height={"auto"}>
-            <Typography variant="h3">{communityDataByID?.PostTitle}</Typography>
-            <Typography>{communityDataByID?.descriptionPost}</Typography>
+            <Typography
+              variant="h3"
+              className="text-[28px] sm:text-[32px] md:text-[40px] lg:text-[48px] font-noto"
+            >
+              {communityDataByID?.PostTitle}
+            </Typography>
+            <Typography className="text-[8px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-noto">
+              {communityDataByID?.descriptionPost}
+            </Typography>
           </Grid>
           <Grid item md={1}>
-            <Typography>{communityDataByID?.OwnerID.firstname}</Typography>
-            <Typography>{day}</Typography>
+            <Typography className="text-[8px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-noto">
+              {communityDataByID?.OwnerID.firstname}
+            </Typography>
+            <Typography className="text-[8px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-noto">
+              {day}
+            </Typography>
             <Grid item md={1}>
               {statusOwner && (
                 <div className="flex gap-y-4">
@@ -158,12 +168,26 @@ const CommunitypageByID = () => {
           </Grid>
         </Grid>
         <Box>
-          <List className="flex gap-y-5 w-full">
-            <Typography>ความคิดเห็นทั้งหมด</Typography>
+          <List
+            className="
+  flex 
+  w-full 
+  gap-y-2 
+  sm:gap-y-4 
+  md:gap-y-5 
+  lg:gap-y-6 
+  xl:gap-y-8"
+          >
+            <Typography className="text-[8px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-noto">
+              ความคิดเห็นทั้งหมด
+            </Typography>
             {communityDataByID?.Comments &&
               communityDataByID?.Comments.length > 0 &&
               communityDataByID?.Comments.map((item, index) => (
-                <ListItem key={index} className="w-full">
+                <ListItem
+                  key={index}
+                  className="text-[10px] sm:text-[10px] md:text-[11px] lg:text-[12px] font-noto w-full"
+                >
                   <PropComment
                     OwnerID={item.OwnerID}
                     comment={item as CommentInterface}
@@ -178,8 +202,8 @@ const CommunitypageByID = () => {
             className="bg-neutral02 border-2 border-neutral-950 rounded-2xl mt-2"
           >
             <TextField
-              placeholder="แสดงความคิดเห็นของคุณ"
               className="w-full"
+              placeholder="แสดงความคิดเห็นของคุณ"
               variant="standard"
               type="text"
               name="comment"
@@ -195,8 +219,12 @@ const CommunitypageByID = () => {
         </form>
       </Box>
 
-      <ModelUpdate open={openModal} handleClose={handleCloseModal} PostTitle={communityDataByID?.PostTitle}  descriptionPost={communityDataByID?.descriptionPost} />
-
+      <ModelUpdate
+        open={openModal}
+        handleClose={handleCloseModal}
+        PostTitle={communityDataByID?.PostTitle}
+        descriptionPost={communityDataByID?.descriptionPost}
+      />
     </>
   );
 };

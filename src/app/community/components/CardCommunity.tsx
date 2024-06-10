@@ -29,7 +29,7 @@ const CardCommunity = ({
             gutterBottom
             variant="h5"
             component="div"
-            className="font-noto"
+            className="text-[12px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-noto"
           >
             {communityData.PostTitle}
           </Typography>
@@ -41,10 +41,18 @@ const CardCommunity = ({
           px={2}
           py={3}
         >
-          <Typography variant="body2" color="text.secondary">
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            className="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px]"
+          >
             {communityData.OwnerID.username}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            className="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px]"
+          >
             {dayjs(communityData.dateCreate).format("DD/MM/YYYY")}
           </Typography>
         </Box>
