@@ -22,7 +22,7 @@ const Loginpage = () => {
     });
   };
 
-  const handleSubmit = async (e : any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     await axiosInstance
       .post("/api/user/login", user)
@@ -57,10 +57,16 @@ const Loginpage = () => {
         gap={5}
       >
         <Box className=" text-primary font-noto">
-          <Typography variant="h3" className="font-bold font-noto">
+          <Typography
+            variant="h3"
+            className="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-bold font-noto"
+          >
             Welcome Back!
           </Typography>
-          <Typography variant="h5" className="font-noto">
+          <Typography
+            variant="h5"
+            className="text-[12px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-noto"
+          >
             ลงชื่อเข้าใช้บัญชีของคุณ
           </Typography>
         </Box>
@@ -99,7 +105,10 @@ const Loginpage = () => {
             </Link>
           </Box>
           <Button type="submit" variant="contained" fullWidth size="large">
-            <Typography variant="h6" className="font-noto">
+            <Typography
+              variant="h6"
+              className="text-[8px] sm:text-[12px] md:text-[16px] lg:text-[20px] font-noto"
+            >
               เข้าสู่ระบบ
             </Typography>
           </Button>
@@ -109,10 +118,16 @@ const Loginpage = () => {
           className="flex justify-center gap-x-2"
           font-noto
         >
-          <Typography variant="h6" className="text-primary font-noto">
+          <Typography
+            variant="h6"
+            className="text-[8px] sm:text-[12px] md:text-[16px] lg:text-[20px] text-primary font-noto"
+          >
             ยังไม่มีบัญชี?
           </Typography>
-          <Typography variant="h6" className="text-primary font-bold font-noto">
+          <Typography
+            variant="h6"
+            className="text-[8px] sm:text-[12px] md:text-[16px] lg:text-[20px] text-primary font-bold font-noto"
+          >
             สมัครใช้งาน
           </Typography>
         </Link>

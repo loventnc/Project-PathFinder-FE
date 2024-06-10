@@ -47,7 +47,7 @@ const Signuppage = () => {
   };
 
   const handleSubmit = async () => {
-  await axiosInstance
+    await axiosInstance
       .post("/api/user/register", user)
       .then(async () => {
         window.location.reload();
@@ -80,10 +80,16 @@ const Signuppage = () => {
         gap={5}
       >
         <Box className=" text-primary">
-          <Typography variant="h3" className="font-bold font-noto">
+          <Typography
+            variant="h3"
+            className="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-bold font-noto"
+          >
             Sign Up
           </Typography>
-          <Typography variant="h5" className="font-noto">
+          <Typography
+            variant="h5"
+            className="text-[12px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-noto"
+          >
             สร้างบัญชีของคุณตอนนี้
           </Typography>
         </Box>
@@ -199,16 +205,25 @@ const Signuppage = () => {
             />
           </Box>
           <Button type="submit" variant="contained" fullWidth size="large">
-            <Typography variant="h6" className="font-noto">
+            <Typography
+              variant="h6"
+              className="text-[8px] sm:text-[12px] md:text-[16px] lg:text-[20px] font-noto"
+            >
               สมัครใช้งาน
             </Typography>
           </Button>
         </form>
         <Link href="/authenrize/login" className="flex justify-center gap-x-2">
-          <Typography variant="h6" className="text-primary font-noto">
+          <Typography
+            variant="h6"
+            className="text-[8px] sm:text-[12px] md:text-[16px] lg:text-[20px] text-primary font-noto"
+          >
             มีบัญชีอยู่แล้ว?
           </Typography>
-          <Typography variant="h6" className="text-primary font-bold font-noto">
+          <Typography
+            variant="h6"
+            className="text-[8px] sm:text-[12px] md:text-[16px] lg:text-[20px] text-primary font-bold font-noto"
+          >
             เข้าสู่ระบบ
           </Typography>
         </Link>

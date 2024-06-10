@@ -73,10 +73,16 @@ const EditProfilepage = () => {
         gap={5}
       >
         <Box className=" text-primary font-noto">
-          <Typography variant="h3" className="font-bold font-noto">
+          <Typography
+            variant="h3"
+            className="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-bold font-noto"
+          >
             แก้ไขโปรไฟล์
           </Typography>
-          <Typography variant="h5" className="font-noto">
+          <Typography
+            variant="h5"
+            className="text-[12px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-noto"
+          >
             สามารถปรับเปลี่ยนข้อมูลของคุณได้ที่นี่
           </Typography>
         </Box>
@@ -145,7 +151,10 @@ const EditProfilepage = () => {
             size="large"
             className="font-noto"
           >
-            <Typography variant="h6" className="font-noto">
+            <Typography
+              variant="h6"
+              className="text-[8px] sm:text-[12px] md:text-[16px] lg:text-[20px] font-noto"
+            >
               เปลี่ยนแปลงข้อมูล
             </Typography>
           </Button>
